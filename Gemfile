@@ -35,3 +35,7 @@ gem 'jquery-rails'
 gem 'turbolinks'
 # Bootstrap for styles
 gem 'bootstrap-sass'
+# Devise for authenticating users
+gem 'devise'
+# Figaro for secure environment variables
+gem 'figaro'
