@@ -4,4 +4,11 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
          :confirmable
+
+
+
+  def name
+    username = self.email.split(/@/).first.humanize.titleize
+  end
+
 end
