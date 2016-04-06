@@ -24,8 +24,7 @@ Rails.application.configure do
     user_name: ENV['confirmation_email'],
     password: ENV['confirmation_password'],
     :authentication => :plain,
-    :enable_starttls_auto => true,
-    :openssl_verify_mode => 'none'
+    :enable_starttls_auto => true
   }
 
   # Enable Rack::Cache to put a simple HTTP cache in front of your application
