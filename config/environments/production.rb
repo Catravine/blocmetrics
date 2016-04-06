@@ -19,11 +19,13 @@ Rails.application.configure do
   config.action_mailer.smtp_settings = {
     :address => "smtp.gmail.com",
     :port => 587,
-    :domain => "gmail.com",
-    user_name: ENV['confirmation_email'],
-    password: ENV['confirmation_password'],
     :authentication => :plain,
-    :enable_starttls_auto => true
+    :domain => "gmail.com",
+    :user_name: ENV['confirmation_email'],
+    :password: ENV['confirmation_password'],
+    :authentication => :plain,
+    :enable_starttls_auto => true,
+    :openssl_verify_mode => 'none'
   }
 
   # Enable Rack::Cache to put a simple HTTP cache in front of your application
