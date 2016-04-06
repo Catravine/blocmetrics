@@ -21,8 +21,8 @@ Rails.application.configure do
     :port => 587,
     :authentication => :plain,
     :domain => "gmail.com",
-    :user_name: ENV['confirmation_email'],
-    :password: ENV['confirmation_password'],
+    user_name: ENV['confirmation_email'],
+    password: ENV['confirmation_password'],
     :authentication => :plain,
     :enable_starttls_auto => true,
     :openssl_verify_mode => 'none'
