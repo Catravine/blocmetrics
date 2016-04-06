@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
 
 
   def name
-    username = self.email.split(/@/).first.humanize.titleize
+    username = self.nickname || self.email.split(/@/).first.humanize.titleize
   end
 
 end
