@@ -1,0 +1,4 @@
+<h1>All Applications</h1>
+<% @registered_applications.each do |regapp| %>
+  <p><%= link_to regapp.name, regapp %></p>
+<% end %>
