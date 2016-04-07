@@ -5,10 +5,12 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable,
          :confirmable
 
+  before_save :set_nickname
 
+  private
 
-  def name
-    username = self.nickname || self.email.split(/@/).first.humanize.titleize
+  def set_nickname
+    self.nickname ||= email.split(/@/).first.humanize.titleize
   end
 
 end
