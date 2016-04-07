@@ -6,6 +6,12 @@ RSpec.describe RegisteredApplicationsController, type: :controller do
   let(:my_app) { create(:registered_application, user: my_user) }
 
   context "guest user" do
+    describe "GET #index (or pretty much anything else)" do
+      it "redirects to sign in if not signed in" do
+        get :index
+        expect(response).to redirect_to "/users/sign_in"
+      end
+    end
   end
 
   context "signed in user" do
@@ -51,12 +57,44 @@ RSpec.describe RegisteredApplicationsController, type: :controller do
       end
     end
 
-    # describe "GET #edit" do
-    #   it "renders the edit template" do
-    #     get :show
-    #     expect(response).to have_http_status(:success)
-    #     expect(response).to render_template("edit")
-    #   end
-    # end
+    describe "GET #edit" do
+      it "renders the edit template" do
+        get :edit, { id: my_app.id }
+        expect(response).to have_http_status(:success)
+        expect(response).to render_template("edit")
+      end
+    end
+
+    describe "PUT #update" do
+      # it "updates regapp with expected attributes" do
+      #   new_name = "New Name 100"
+      #   new_url = "http://new.url"
+      #   put :update, id: my_app.id, registered_application: { name: new_name, url: new_url }
+      #   updated_app = assigns(:registered_application)
+      #   expect(updated_app.id).to eq my_app.id
+      #   expect(updated_app.name).to eq my_app.name
+      #   expect(updated_app.url).to eq my_app.url
+      # end
+      #
+      # it "redirects to the updated app info" do
+      #   new_name = "New Name 200"
+      #   new_url = "http://new2.url"
+      #   put :update, id: my_app.id, post: { name: new_name, url: new_url }
+      #   expect(response).to redirect_to my_app
+      # end
+    end
+
+    describe "DELETE #destroy" do
+      it "deletes the regapp" do
+        delete :destroy, { id: my_app.id }
+        count = RegisteredApplication.where({id: my_app.id}).size
+        expect(count).to eq 0
+      end
+
+      it "redirects to apps index" do
+        delete :destroy, { id: my_app.id }
+        expect(response).to redirect_to registered_applications_path
+      end
+    end
   end
 end
