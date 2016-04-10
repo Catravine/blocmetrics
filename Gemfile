@@ -39,3 +39,5 @@ gem 'bootstrap-sass'
 gem 'devise'
 # Figaro for secure environment variables
 gem 'figaro'
+# Faker for seeding realistic random fake data
+gem 'faker'
