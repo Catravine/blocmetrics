@@ -7,7 +7,7 @@
     <h4># of Events: <%= @events.count %></h4>
     <ul>
       <% @events.each do |event| %>
-        <li><%= event.first %></li>
+        <li><%= event.first %><small> - <%= time_ago_in_words(event.last.first.created_at) %> ago</small></li>
       <% end %>
     </ul>
   </div>
