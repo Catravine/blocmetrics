@@ -27,25 +27,16 @@ blocmetrics.report = function(eventName) {
   request.send(JSON.stringify(event));
 };
 ```
-put this event report in your `<head>`
+put this event report in any view:
 
 ```javascript
-<script>
-window.onload = function() {
-  blocmetrics.report('eventName');
-};
+<script type='text/javascript'>
+  blocmetrics.report('User View');
 </script>
 ```
 
-**or** in an html element:
-
-```html
-<h1 onload="function() {
-  blocmetrics.report('eventName');
-};">A Specific Page</h1>
-```
-
-Change **eventName** to a meaningful... event name
+Change **eventName** to a meaningful... event name.  Make it distinctive and
+descriptive for each 'thing' you want to report!
 
 ###Create events the old-fashioned way:
 
