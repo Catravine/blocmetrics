@@ -46,3 +46,10 @@ window.onload = function() {
 ```
 
 Change **eventName** to a meaningful... event name
+
+###Create events the old-fashioned way:
+
+$ `curl -v -H "Accept: application/json" -H "Origin: http://reg.app" -H "Content-Type: application/json" -X POST -d '{"name":"foobar"}'  https://mighty-eyrie-26757.herokuapp.com/api/events`
+
+except change **http://reg.app** to the app's real url, **foobar** to an event's
+name.

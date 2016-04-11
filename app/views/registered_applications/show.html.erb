@@ -3,8 +3,8 @@
 <div class="row">
   <div class="col-md-8">
     <h4><%= link_to @registered_application.url, @registered_application.url %></h4>
-    <p>By: <%= link_to @registered_application.user.nickname, profile_path(@registered_application.user) %></p>
-    <h4># of Events: <%= @events.count %></h4>
+    <p>Registered by: <%= link_to @registered_application.user.nickname, profile_path(@registered_application.user) %></p>
+    <%= pie_chart @registered_application.events.group(:name).count %>
     <ul>
       <% @events.each do |event| %>
         <li><%= event.first %><small> - <%= time_ago_in_words(event.last.first.created_at) %> ago</small></li>

@@ -41,3 +41,6 @@ gem 'devise'
 gem 'figaro'
 # Faker for seeding realistic random fake data
 gem 'faker'
+# Chartkick Library & Groupdate - graphs of events
+gem 'chartkick'
+gem 'groupdate'
