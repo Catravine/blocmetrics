@@ -6,6 +6,8 @@
     <p>Registered by: <%= link_to @registered_application.user.nickname, profile_path(@registered_application.user) %></p>
     <%= pie_chart @registered_application.events.group(:name).count %>
     <%= line_chart @registered_application.events.group_by_day(:created_at).count %>
+
+    <h4>Events: <%= @events.count %></h4>
     <ul>
       <% @events.each do |event| %>
         <li><%= event.first %><small> - <%= time_ago_in_words(event.last.first.created_at) %> ago</small></li>
