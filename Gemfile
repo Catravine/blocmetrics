@@ -4,12 +4,12 @@ source 'https://rubygems.org'
 gem 'rails', '4.2.5'
 
 group :production do
-  gem 'pg'
+  #gem 'pg'
   gem 'rails_12factor'
 end
 
 group :development do
-  gem 'sqlite3'
+  #gem 'sqlite3'
   gem 'quiet_assets'
   gem 'pry-rails'
   gem 'better_errors'
@@ -44,3 +44,4 @@ gem 'faker'
 # Chartkick Library & Groupdate - graphs of events
 gem 'chartkick'
 gem 'groupdate'
+gem 'pg'
