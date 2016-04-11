@@ -3,7 +3,8 @@
 <div class="row">
   <div class="col-md-8">
     <h4><%= link_to @registered_application.url, @registered_application.url %></h4>
-    <p>Registered by: <%= link_to @registered_application.user.nickname, profile_path(@registered_application.user) %></p>
+    <p>Registered by: <%= link_to @registered_application.user.nickname, profile_path(@registered_application.user) %>,
+      reporting since <%= @registered_application.created_at.strftime("%B %d, %Y") %></p>
     <%= pie_chart @registered_application.events.group(:name).count %>
     <%= line_chart @registered_application.events.group_by_day(:created_at).count %>
 
