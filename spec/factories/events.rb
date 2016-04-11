@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :event do
-    name "MyString"
-    registered_application nil
+    sequence(:name) { |n| "event-#{n}" }
+    registered_application
   end
 end
