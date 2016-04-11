@@ -38,7 +38,7 @@ put this event report in any view:
 Change **eventName** to a meaningful... event name.  Make it distinctive and
 descriptive for each 'thing' you want to report!
 
-###Create events the old-fashioned way:
+###Create events the old-fashioned 'curl' way:
 
 $ `curl -v -H "Accept: application/json" -H "Origin: http://reg.app" -H "Content-Type: application/json" -X POST -d '{"name":"foobar"}'  https://mighty-eyrie-26757.herokuapp.com/api/events`
 
