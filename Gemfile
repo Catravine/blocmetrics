@@ -45,3 +45,5 @@ gem 'faker'
 gem 'chartkick'
 gem 'groupdate'
 gem 'pg'
+# Rack-cors for heroku deployment
+gem 'rack-cors', :require => 'rack/cors'
