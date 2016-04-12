@@ -19,3 +19,58 @@ Caroline Courtney</a>, &copy; 2016</p>
   <li>A Rails application that displays the captured event data for a
     user.</li>
 </ul>
+
+<h3>Register your Application</h3>
+
+<p>
+<%= link_to "Sign up", '#' %>and then 'Register New App',
+and enter your app's name and url to add your app to Blocmetrics' list of
+registered domains.
+</p>
+
+<p>
+For best results, register (or edit) your url to leave the slash off the end:
+http://live-url.net, **not** http://live-url.net/
+</p>
+
+<h3>Generate Event request snippet:</h3>
+
+<p>copy this code into your <code>app/assets/javascripts/application.js</code> file:</p>
+
+<pre><code>
+// Blocmetrics event request
+var blocmetrics = {};
+blocmetrics.report = function(eventName) {
+  var event = {event: { name: eventName}};
+  var request = new XMLHttpRequest();
+  request.open("POST", "https://mighty-eyrie-26757.herokuapp.com/api/events", true);
+  request.setRequestHeader('Content-Type', 'application/json');
+  request.send(JSON.stringify(event));
+};
+</code></pre>
+
+<p>put this event report in any view:</p>
+
+<pre><code>
+<script type='text/javascript'>
+  blocmetrics.report('A cool Thing happened...');
+</script>
+</code></pre>
+
+<p>
+Change <strong>eventName</strong> to a meaningful... event name.
+Make it distinctive and
+descriptive for each 'thing' you want to report!
+</p>
+
+<h3>Create events the old-fashioned 'curl' way:</h3>
+
+<pre>
+$ <code>curl -v -H "Accept: application/json" -H "Origin: http://reg.app" -H "Content-Type: application/json" -X POST -d '{"name":"foobar"}'  https://mighty-eyrie-26757.herokuapp.com/api/events</code>
+</pre>
+
+<p>
+except change <strong>http://reg.app</strong> to the app's real url,
+<strong>foobar</strong> to an actual event's
+name.
+</p>

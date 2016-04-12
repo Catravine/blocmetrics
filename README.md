@@ -8,9 +8,12 @@ Live: [Heroku Deployment](https://mighty-eyrie-26757.herokuapp.com/).
 
 ###Register your Application
 
-[Sign up](https://mighty-eyrie-26757.herokuapp.com/) and then 'Register New App',
+[Sign up](https://mighty-eyrie-26757.herokuapp.com) and then 'Register New App',
 and enter your app's name and url to add your app to Blocmetrics' list of
-registered domains.
+registered domains.  
+
+For best results, register (or edit) your url to leave the slash off the end:
+http://live-url.net, **not** http://live-url.net/
 
 ###Generate Event request snippet:
 
@@ -31,7 +34,7 @@ put this event report in any view:
 
 ```javascript
 <script type='text/javascript'>
-  blocmetrics.report('User View');
+  blocmetrics.report('A cool Thing happened...');
 </script>
 ```
 
@@ -42,5 +45,5 @@ descriptive for each 'thing' you want to report!
 
 $ `curl -v -H "Accept: application/json" -H "Origin: http://reg.app" -H "Content-Type: application/json" -X POST -d '{"name":"foobar"}'  https://mighty-eyrie-26757.herokuapp.com/api/events`
 
-except change **http://reg.app** to the app's real url, **foobar** to an event's
+except change **http://reg.app** to the app's real url, **foobar** to an actual event's
 name.
