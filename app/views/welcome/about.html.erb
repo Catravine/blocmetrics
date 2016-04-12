@@ -23,14 +23,14 @@ Caroline Courtney</a>, &copy; 2016</p>
 <h3>Register your Application</h3>
 
 <p>
-<%= link_to "Sign up", '#' %>and then 'Register New App',
+<%= link_to "Sign up", root_path %> (if you haven't already) and then 'Register New App',
 and enter your app's name and url to add your app to Blocmetrics' list of
 registered domains.
 </p>
 
 <p>
 For best results, register (or edit) your url to leave the slash off the end:
-http://live-url.net, **not** http://live-url.net/
+http://live-url.net &nbsp; &nbsp;<em style="color: #999;">not &gt; http://live-url.net/</em>.
 </p>
 
 <h3>Generate Event request snippet:</h3>
@@ -51,14 +51,14 @@ blocmetrics.report = function(eventName) {
 
 <p>put this event report in any view:</p>
 
-<pre><code>
-<script type='text/javascript'>
-  blocmetrics.report('A cool Thing happened...');
-</script>
+<pre><code language="javascript">
+&lt;script type='text/javascript'&gt;
+  blocmetrics.report('A cool Thing happened');
+&lt;/script&gt;
 </code></pre>
 
 <p>
-Change <strong>eventName</strong> to a meaningful... event name.
+Change <strong>A cool Thing happened</strong> to a meaningful... event name.
 Make it distinctive and
 descriptive for each 'thing' you want to report!
 </p>
