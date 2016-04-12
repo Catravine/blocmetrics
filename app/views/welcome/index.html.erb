@@ -11,7 +11,13 @@
     <div class="col-md-4">
       <% if user_signed_in? %>
         <h2>Hi, <%= link_to current_user.nickname, profile_path(current_user) %>!</h2>
-        <p>Metricizing x apps...</p>
+        <p>Metricizing <%= RegisteredApplication.where(user: current_user).count %> apps;</p>
+        <% if RegisteredApplication.where(user: current_user).count == 0 %>
+          <%= link_to "Start Registerin'!", new_registered_application_path, class: 'btn btn-primary' %>
+        <% else %>
+          <% lastapp = RegisteredApplication.where(user: current_user).last %>
+          <p>...like <%= link_to lastapp.name, registered_application_path(lastapp) %>!</p>
+        <% end %>
       <% else %>
         <%= render "signup" %>
       <% end %>
